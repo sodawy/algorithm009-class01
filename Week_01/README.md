@@ -7,7 +7,7 @@
 
 ## 常用模板代码
 1. 双层loop:
-    ```java```
+    ```java
     for (int i = 0; i < arrays.length - 1; i++) {
         for (int j = i + 1; j < arrays.length; j ++) {
         
@@ -89,26 +89,26 @@
         3. 取i柱高度为此子问题矩形面积的高，即i为解范围中的最低柱，所以左右两侧第一个低于i柱的就是解的边界。2.2的问题答案为：以i为中心，其左侧第一个小于他的即为左边界柱，其右侧第一个小于他的即为右边界柱。理解为什么时，需要借助实例动笔画下。
         4. 至此，选用单调栈也就很好理解了。其同时兼顾了次序和入栈顺序，以保证与入栈元素的位置最近
         5. 实现的时候，外层for循环控制遍历2.1的子问题，不断出栈的过程通过控制for中的i游标完成。
+        6. 参考实现：[answser](https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/28900/Short-and-Clean-O(n)-stack-based-JAVA-solution) from **cx4ued**`s reply 
         ```java
-        //ask from reply of `cx4ued`, link is https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/28900/Short-and-Clean-O(n)-stack-based-JAVA-solution   
-    public int largestRectangleArea(int[] heights) {
-        int len = heights.length;
-        int maxArea = 0;
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i <= len;) {
-            int h = (i == len ? 0 : heights[i]);
-            if (stack.isEmpty() || h >= heights[stack.peek()]) {
-                stack.push(i);
-                i++;
-            }else {
-                int curHeight = heights[stack.pop()];
-                int rightBoundary = i - 1;
-                int leftBoundary = stack.isEmpty() ? 0 : stack.peek() + 1;
-                int width = rightBoundary - leftBoundary + 1;
-                maxArea = Math.max(maxArea, (curHeight * width));
+        public int largestRectangleArea(int[] heights) {
+            int len = heights.length;
+            int maxArea = 0;
+            Stack<Integer> stack = new Stack<>();
+            for (int i = 0; i <= len;) {
+                int h = (i == len ? 0 : heights[i]);
+                if (stack.isEmpty() || h >= heights[stack.peek()]) {
+                    stack.push(i);
+                    i++;
+                }else {
+                    int curHeight = heights[stack.pop()];
+                    int rightBoundary = i - 1;
+                    int leftBoundary = stack.isEmpty() ? 0 : stack.peek() + 1;
+                    int width = rightBoundary - leftBoundary + 1;
+                    maxArea = Math.max(maxArea, (curHeight * width));
+                }
             }
+            return maxArea;
         }
-        return maxArea;
-    }
         ```
                                            
