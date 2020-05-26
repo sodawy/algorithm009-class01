@@ -22,13 +22,6 @@ public class LinkedListCycle {
             if (runner == walker) {
                 return true;
             }
-
-            Stack<Integer> stack = new Stack<>();
-            stack.peek();
-            stack.push(1);
-            stack.pop();
-            Integer.MIN
-
         }
 
         return false;

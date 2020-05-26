@@ -1,0 +1,27 @@
+package Week_01;
+
+class RemoveDuplicatesFromSortedArray {
+
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return nums.length;
+        }
+
+        int len = nums.length;
+
+        int currentTargetVal = nums[0];
+
+        int noDupPos = 1; //before this, no duplicates
+        int cursor = 1;
+
+        while (cursor < len) {
+            if (nums[cursor] != currentTargetVal) {
+                currentTargetVal = nums[cursor];
+                nums[noDupPos++] = nums[cursor];
+            }
+            cursor++;
+        }
+
+        return noDupPos;
+    }
+}

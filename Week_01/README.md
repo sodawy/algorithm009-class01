@@ -78,6 +78,10 @@
 #### PriorityQueue 
 - note
     - > An unbounded priority queue based on a priority heap. The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.
+    - 通常堆实现，不需要连续内存空间
+    - 构造实例时需要指定`Comparator`，以此确定对中的排序
+    - 取最大(小)值的复杂度为O(1)，取某个元素时，运维已经有序，O(logn)即可
+    - 删除和插入，O(logn)
 
 
 ### 本周棘手难题

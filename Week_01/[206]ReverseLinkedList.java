@@ -2,7 +2,7 @@ package Week_01;
 
 import Utils.ListNode;
 
-public class ReverseLinkedList {
+class ReverseLinkedList {
     public static void main(String[] args) {
 
     }
