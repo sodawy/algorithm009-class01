@@ -33,7 +33,6 @@ class SlidingWindowMax {
             if (i >= k - 1) {
                 ret[retIndex++] = nums[q.peek()];
             }
-
         }
 
         return ret;
