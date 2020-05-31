@@ -93,7 +93,8 @@
         3. 取i柱高度为此子问题矩形面积的高，即i为解范围中的最低柱，所以左右两侧第一个低于i柱的就是解的边界。2.2的问题答案为：以i为中心，其左侧第一个小于他的即为左边界柱，其右侧第一个小于他的即为右边界柱。理解为什么时，需要借助实例动笔画下。
         4. 至此，选用单调栈也就很好理解了。其同时兼顾了次序和入栈顺序，以保证与入栈元素的位置最近
         5. 实现的时候，外层for循环控制遍历2.1的子问题，不断出栈的过程通过控制for中的i游标完成。
-        6. 参考实现：[answser](https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/28900/Short-and-Clean-O(n)-stack-based-JAVA-solution) from **cx4ued**`s reply 
+        6. 为啥用单调栈。从左向右遍历，发现比自己小的，则可确定自己，而一旦确定，还需要不断回退，即从右向左得出结果。[更多说明](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/)
+        7. 参考实现：[answser](https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/28900/Short-and-Clean-O(n)-stack-based-JAVA-solution) from **cx4ued**`s reply 
         ```java
         public int largestRectangleArea(int[] heights) {
             int len = heights.length;
