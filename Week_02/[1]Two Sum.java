@@ -16,7 +16,13 @@ class TwoSum{
             }else{
                 map.put(nums[i], i);
             }
+
         }
         return ret;
+    }
+
+    public static void main(String[] args) {
+        String s = "we are you";
+        System.out.println(s.replaceAll(" ", "%20"));
     }
 }
